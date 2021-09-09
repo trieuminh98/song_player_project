@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -20,9 +21,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp -a ./build/. ../www/",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean-build": "rm -rf ../www;mkdir ../www;rm -rf build;",
+    "cordova-android": "cordova run android",
+    "android": "npm run build && npm run cordova-android"
   },
   "eslintConfig": {
     "extends": "react-app"
